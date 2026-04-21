@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'find_my_lost_pet.apps.FindMyLostPetConfig'
 ]
 
 MIDDLEWARE = [
