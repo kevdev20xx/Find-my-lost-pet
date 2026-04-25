@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Amigo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+      <form style="width: 512px; margin: auto; margin-top: 30px" method="post" action="{% url 'find_my_lost_pet:sign_up' %}">
+        {% csrf_token %}
+      <div class="mb-3">
+        <label for="nameInput" class="form-label">Name</label>
+        <input
+          type="text"
+          name="name_input"
+          id="nameInput"
+          class="form-control"
+        />
+        <span id="nameSpan" class="text-danger">{{name_input_error_message}}</span>
+      </div>
+
+      <div class="mb-3">
+        <label for="phoneNumberInput" class="form-label">Phone Number</label>
+        <input
+          type="text"
+          name="phone_number_input"
+          id="phoneNumberInput"
+          class="form-control"
+        />
+        <span id="phoneNumberSpan" class="text-danger">{{phone_number_input_error_message}}</span>
+      </div>
+
+
+      <div class="mb-3">
+        <label for="emailInput" class="form-label">Email</label>
+        <input
+          type="email"
+          name="email_input"
+          id="emailInput"
+          class="form-control"
+        />
+        <span id="emailSpan" class="text-danger">{{email_input_error_message}}</span>
+      </div>
+
+      <div class="mb-3">
+        <label for="passwordInput" class="form-label">Password</label>
+        <input
+          type="password"
+          name="password_input"
+          id="passwordInput"
+          class="form-control"
+        />
+        <span id="passwordSpan" class="text-danger">{{password_input_error_message}}</span>
+      </div>
+      <div class="mb-3">
+        <label for="confirmPasswordInput" class="form-label"
+          >Confirm Password</label
+        >
+        <input
+          type="password"
+          name="confirm_password_input"
+          id="confirmPasswordInput"
+          class="form-control"
+        />
+        <span id="confirmPasswordSpan" class="text-danger">{{confirm_password_input_error_message}}</span>
+      </div>
+      <button class="btn btn-primary" id="submitBtn">Submit</button>
+    </form>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
