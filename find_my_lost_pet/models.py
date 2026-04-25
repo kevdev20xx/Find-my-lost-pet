@@ -3,11 +3,14 @@ from django.db import models
 
 # Create your models here.
 
-class User(models.Model):
+class CustomUser(models.Model):
+    name = models.CharField(max_length=200)
+    phone_number = models.CharField(max_length=200)
     email = models.CharField(max_length=200)
     password = models.CharField(max_length=255)
-    name = models.CharField(max_length=200)
-    phoneNumber = models.CharField(max_length=200)
+    
+    def __str__(self):
+        return self.name + " - " + self.email
     
 class LostPet(models.Model):
     profile_picture = models.CharField(max_length=200)
@@ -17,8 +20,9 @@ class LostPet(models.Model):
     bounty_for_information = models.BooleanField()  
     latitude = models.FloatField()    
     longitude = models.FloatField()    
-    owner = models.ForeignKey(User, on_delete=models.CASCADE)
-
+    owner = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.name
 
 class LostPetPicture(models.Model):
     picture_name = models.CharField(max_length=200)
